@@ -28,11 +28,7 @@ if nargin < 12 || isempty(minlaydz)
     minlaydz = 20;
 end
 
-% if tref > 0; 
-%     tref = - tref; 
-%     fprintf('Making mineos attenuation reference velocity negative for Russell Mineos code. '); 
-%     % brb20240606 TODO add option to allow positive if using Zach's version of Mineos. 
-% end
+tref = - abs(tref); % brb20240628 Josh's Mineos only works with negative tref. I can run Zach's code either way. Results look the same, but I did not verify that the result is exactly the same. 
 
 global prem_anisotropic prem_isotropic
 if isempty(prem_isotropic)
