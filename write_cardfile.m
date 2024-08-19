@@ -28,7 +28,14 @@ if nargin < 12 || isempty(minlaydz)
     minlaydz = 20;
 end
 
-tref = - abs(tref); % brb20240628 Josh's Mineos only works with negative tref. I can run Zach's code either way. Results look the same, but I did not verify that the result is exactly the same. 
+% tref = - abs(tref); % brb20240628 Josh's Mineos only works with negative tref. I can run Zach's code either way. Results look the same, but I did not verify that the result is exactly the same. 
+% disp('CHANGING TREF')
+tref = -1; % 28.0
+% % Temporary test brb20240701
+% tref = -29.0; 
+% disp('CHANGING TREF')
+% % Temporary test brb20240701
+
 
 global prem_anisotropic prem_isotropic
 if isempty(prem_isotropic)
@@ -120,7 +127,7 @@ for ii = 1:N
         1000*card.R(kk),1000*card.rho(kk),1000*card.vpv(kk),1000*card.vsv(kk),card.Qk(kk),card.Qmu(kk),1000*card.vph(kk),1000*card.vsh(kk),card.eta(kk));
 end
 fclose(fid);
-fprintf('cardfile %s written\n',ofile);
+% fprintf('cardfile %s written\n',ofile);
 end
 
 end
